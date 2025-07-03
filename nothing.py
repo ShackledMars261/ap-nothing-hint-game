@@ -8,10 +8,10 @@ class WindowsHelper: # Can add additional Operating Systems as new classes if ne
         except Exception as e:
             if f'Could not find process: {exe_name}' == str(e):
                 print(f'Please launch Nothing.exe')
-                sys.exit()
+                sys.exit(1)
             else:
                 print(f'Unknown error: {str(e)}')
-                sys.exit()
+                sys.exit(1)
 
         self.memory_address = self.get_memory_address()
 
@@ -37,7 +37,7 @@ class NothingHintGame:
             self.helper = WindowsHelper()
         else:
             print(f'OS \'{self.os}\' is not supported currently.')
-            sys.exit()
+            sys.exit(1)
 
         self.last_value: int = -1
         self.curr_value: int = -1
