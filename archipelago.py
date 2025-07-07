@@ -180,10 +180,10 @@ class Archipelago:
             if len(recieved_data) > 0:
                 self.process_data(recieved_data)
 
-async def main(ip: str, port: int, slot_name: str, password: str = ''):
+async def main(ip: str, port: int, slot_name: str, password: str = '', milestone: int = 300):
     if ip == '':
         ip = 'archipelago.gg'
-    nothing: NothingHintGame = NothingHintGame(5)
+    nothing: NothingHintGame = NothingHintGame(milestone)
     ap: Archipelago = Archipelago(port, slot_name, ip=ip, password=password)
     ap.connect()
     while True:
